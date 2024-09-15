@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: white;
+   overflow-x: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: moveStar linear infinite;
+}
+
+@keyframes moveStar {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(0vw, 700vh); /* Bergerak secara diagonal */
+    }
+}
+
+.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: opacity 0.5s ease;
+    text-decoration: none;
+    
+}
+
+.navigation a::after {
+    content: '';
+    left: 0;
+    bottom: -6px;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnlogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    margin-left: 40px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.container .item-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    background: black;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius:20px ;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.container {
+    position: relative; /* Tambahkan posisi relative */
+    z-index: 10; /* Pastikan z-index lebih tinggi dari .container-h1 */
+}
+
+.container-h1 {
+    position: absolute; /* Tambahkan posisi absolute agar di belakang form */
+    z-index: 5; /* Pastikan z-index lebih rendah dari .container */
+    top: 50%; /* Sesuaikan posisi vertikal */
+    left: 50%; /* Sesuaikan posisi horizontal */
+    transform: translate(-50%, -50%); /* Pusatkan konten */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    transition: transform .5s ease-in-out;
+    transform: scale(0);
+    position: relative; /* Tambahkan posisi relative */
+    z-index: 10; /* Pastikan z-index lebih tinggi dari .container-h1 */
+}
+
+.container.active-popup {
+    transform: scale(1);
+}
+
+
+
+.container h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.container .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box input {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px ;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.container .remember-fotgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-fotgot input label {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-fotgot a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.remember-fotgot a:hover {
+    text-decoration: underline;
+}
+
+.container .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.container .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+.container-h1 {
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute; /* Tambahkan posisi absolute agar di belakang form */
+    z-index: 5; /* Pastikan z-index lebih rendah dari .container */
+    top: 40%; /* Sesuaikan posisi vertikal */
+    left: 60%; /* Sesuaikan posisi horizontal */
+    transform: translate(-50%, -50%); /* Pusatkan konten */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.container-img1 {
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+}
+
+.container-img1 img {
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 0px 120px rgba(0, 255, 255, 0.7);
+    object-fit: cover; 
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.container-img1 img:hover {
+   
+}
+
+.o-h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    height: 10vh;
+    margin-top: 15px;
+    margin-right: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.p-content {
+    background: linear-gradient(to right, #27e884, #0735ff); /* Ganti dengan warna yang Anda inginkan */
+    -webkit-background-clip: text;
+    color: transparent;
+    width: 60%;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    font-family: "Assistant", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+    border-radius: 10px;
+    font-size: 55px;
+    font-weight: 700;
+    position: absolute;
+    top: 55%;
+    left: 77%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+}
+
+.btn-container {
+
+}
+
+.a-about {
+    color: rgb(46, 163, 218);
+    text-decoration: none;
+    background: transparent;
+    background-size: cover;
+}
+
+.a-about:hover {
+    color: white;
+}
+
+.btn-content {
+    position: absolute;
+    top: 72%;
+    left: 51%;
+    z-index: 5;
+    color: rgb(46, 163, 218);
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 10px 20px;
+    border: rgb(46, 163, 218) 2px solid;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn-content:hover {
+    background-color: rgb(46, 163, 218);
+    color: #fff;
+}
+
+.wave {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about {
+    border: none;
+  z-index: -1;
+  text-align: center;
+  width: 100vw;
+  height: 99vh;
+  display: block;
+  background-color: #152355 ;
+}
+
+.about-img {
+    height: 480px;
+    width: 720px;
+    padding-top: 150px;
+}
+
+.about-img1{
+    width: 60%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.about h1 {
+  position: absolute;
+  top: 175%;
+  left: 57%;
+  color: black;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+.about h2 {
+  width: 100%;
+  color: black;
+  position: absolute;
+  top: 180%;
+  left: 70%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+.about p {
+    position: absolute;
+  top: 185%;
+  left: 51%;
+  color: black;
+  text-align: start;
+  width: 600px;
+}
+
+.about button{
+    border-radius: 20px;
+    background: transparent;
+    transition: 0.5s;
+    padding: 5px 30px;
+    border: 1px solid white;
+}
+
+.about button:hover{
+    background-color: #27e884;
+}
+
+.about-btn1 {
+    position: absolute;
+    top: 205%;
+    left: 51%;
+    color: black;
+}
+
+.about-btn2 {
+    position: absolute;
+    top: 205%;
+    left: 58%;
+    color: black;
+}
+
+.about-a {
+    text-decoration: none;
+    color: white;
+}
+
+.bg2-cover {
+    width: 100%;
+    height: 80vh;
+    padding-bottom: 640px;
+    background-color: #000000;
+}
+
+.bg2-cover h1 {
+    font-size: 4rem;
+    position: absolute;
+    top: 290%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bg2-cover p {
+    position: absolute;
+  top: 300%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg2-cover button {
+    position: absolute;
+  top: 306%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 1px solid white;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: .5s ease;
+  padding: 5px 20px;
+}
+
+.bg2-cover button:hover {
+    font-size: 15px;
+    padding: 7px 25px;
+    background-color: rgba(16,111,136,0.66);
+    box-shadow: #27e884;
+}
+
+.a-button-bg2-cover {
+    text-decoration: none;
+    color: white;
+}
+
+.bg2 { 
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+}
+
+.h1-content2 {
+    position: absolute;
+    top: 371%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+}
+
+.h1-content2-2 {
+    position: absolute;
+    top: 371%;
+    left: 61%;
+    transform: translate(-50%, -50%);
+}
+
+.bg2 { 
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000000;
+    padding-bottom: 100px;
+    border-bottom: 1px solid white;
+}
+
+.h1-content2-2-2 {
+    position: absolute;
+    top: 484%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+}
+
+.h1-content2-2-2-2 {
+    position: absolute;
+    top: 484%;
+    left: 61%;
+    transform: translate(-50%, -50%);
+}
+
+
+.img1-content2 {
+   display: inline-block;
+   justify-content: center;
+   align-items: center;
+  margin-top: 250px;
+  
+}
+
+.img1 {
+    margin: 20px 55px;
+    height: 250px;
+    width: 40%;
+    transition: 1.2s;
+}
+
+.img1:hover {
+    box-shadow: 8px 11px 22px 3px rgba(0,0,0,1);
+    -webkit-box-shadow: 8px 11px 22px 3px rgba(0,0,0,1);
+    -moz-box-shadow: 8px 11px 22px 3px rgba(0,0,0,1);
+    height: 275px;
+    width: 43%;
+}
+
+
+
+.p1 {
+    display: inline-block;
+    width: 40%;
+    margin: 20px 50px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.bg3 {
+    width:100vw;
+    height: 100vh;
+    background: #000000;
+}
+
+.skills-section {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill {
+    background-color: #1e38b04b;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar-1, .skill-bar-2, .skill-bar-3, .skill-bar-4, .skill-bar-5{
+    height: 40px;
+    background: linear-gradient(90deg, #0c0d0d, #10ffdf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+.skill-bar-1 {
+    width: 70%;
+}
+
+.skill-bar-2 {
+    width: 75%;
+}
+
+.skill-bar-3 {
+    width: 85%;
+}
+
+.skill-bar-4 {
+    width: 65%;
+}
+
+.skill-bar-5 {
+    width: 72%;
+}
+
+
+
+
+.skill-name {
+    position: absolute;
+    left: 30px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.bg-4 {
+    width: 100vw;
+    height: 170vh;
+    background: #000000;
+}
+
+.experience-section {
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.experience-section h2 {
+    text-align: center;
+    font-size: 46px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.experience-section h5 {
+    color: #333;
+    position: relative;
+    font-size: 36px;
+}
+
+.experience-h5-1 {
+    margin-left: 80px;
+    top: 125px;
+}
+
+.experience-h5-2 {
+    margin-left: 630px;
+    top: 75px;
+}
+
+.experience-timeline, .experience-timeline2 {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+    left: -350px;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.experience-timeline2 {
+    position: relative;
+    top: -490px;
+    left: 200px;
+}
+
+.experience-item, .experience-item2 {
+    padding-left: 30px;
+    border-left: 2px solid #2ab9d3ad;
+    position: relative;
+}
+
+.experience-item::before, .experience-item2::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #2ab9d3ad;
+    border-radius: 50%;
+}
+
+.experience-item h3, .experience-item2 h3 {
+    font-size: 24px;
+    margin: 0;
+    color: #2ab9d3ad;
+}
+
+.experience-item h4, .experience-item2 h4 {
+    font-size: 18px;
+    margin: 5px 0 15px;
+    color: #333;
+}
+
+.experience-item p, .experience-item2 p {
+    padding-bottom: 15px;
+    color: #555;
+    width: 110%;
+    margin-bottom: 1px;
+}
+
+/* Efek Transisi */
+.experience-item, .experience-item2{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.experience-item.visible, .experience-item2.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bg-5 {
+    width: 100vw;
+    height: 50vh;
+    background: #100a47;
+}
+
+footer {
+
+}
+.icon {
+    position: relative;
+    margin: 30px 0px;
+    left: 45%;
+}
+
+span a {
+    color: white;
+}
+
+.about-footer {
+    top: 30px;
+    margin: 40px 0px;
+    position: relative;
+    left: 45%;
+}
+
+.p-footer {
+    margin: 30px 0px;
+    position: relative;
+    left: 45%;
+    width: 50%;
+}
+
+.icon span {
+    display: inline-block;
+    margin: 0.25em; border: 1px solid silver;
+    border-radius: 0.25em;
+    padding: .25em 0.5em;
+}
+
